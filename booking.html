@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Booking | StayEasy</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+    <header><a class="brand" href="index.html">StayEasy Hotel</a>
+        <nav><a href="rooms.html">Rooms</a><a href="booking.html">Book</a><a href="register.html">Customer
+                registration</a></nav>
+    </header>
+    <main class="container narrow">
+        <h1>Booking: improve this form</h1>
+        <p>All fields below begin as text fields. Replace controls step by step using the workshop instructions.</p>
+
+        <form id="booking-form">
+            <label>Check-in date<input id="check-in" type="date" required></label>
+            <label>Check-out date<input id="check-out" type="date" required></label>
+            <!-- Design decision: Showing the allowed guest range next to the field means guests don't have to try a number and get an error to learn the limit, which reduces confusion. -->
+            <label>Guest count<input id="guests" type="number" min="1" max="4" value="1" required></label>
+            <p class="hint">Rooms fit 1 to 4 guests. Family rooms suit 3 to 4.</p>
+            <label>Room type
+                <select id="room-type" required>
+                    <option value="">Choose room type</option>
+                    <option value="standard">Standard room</option>
+                    <option value="deluxe">Deluxe room</option>
+                    <option value="family">Family room</option>
+                </select>
+            </label>
+            <label>Room number<select id="room-number" required disabled>
+                    <option value="">Choose room type first</option>
+                </select></label>
+            <fieldset>
+                <legend>Payment method</legend>
+                <label class="inline"><input type="radio" name="payment" value="Card" checked>Card</label>
+                <label class="inline"><input type="radio" name="payment" value="Bank transfer">Bank transfer</label>
+            </fieldset>
+            <label>Special request<textarea id="request" placeholder="Optional request"></textarea></label>
+            <button type="submit">Review booking</button>
+            <p id="status" class="status" role="status">Choose dates, room type, and room number.</p>
+        </form>
+
+        <section id="preview" class="preview" hidden></section>
+
+        <script src="js/rooms.js"></script>
+        <script src="js/booking.js"></script>
+    </main>
+
+    <!-- Usability test task: A guest wants to book a Family room for 3 people for two nights next weekend, pay by bank transfer, and ask for an extra bed. -->
+    <!-- Expected evidence: I will watch for hesitation choosing the room number before the room type, mistakes with guest count, and whether the tester finds the special request box without help. -->
+</body>
+
+</html>
